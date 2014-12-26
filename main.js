@@ -1,3 +1,39 @@
+function setSettings() {
+	var popSize = document.getElementById('popSize').value;
+	var target = document.getElementById('target').value;
+	var mutation = document.getElementById('mutation').value;
+
+	if (popSize % 2 === 0)
+		POP_SIZE = popSize;
+
+	TARGET = target;
+	MUTATION_RATE = mutation;
+
+	document.getElementById('popSize').value = "";
+	document.getElementById('target').value = "";
+	document.getElementById('mutation').value = "";
+}
+
+function hideMenu() {
+	document.getElementById('settings').className = "hide";
+}
+
+function showMenu() {
+	document.getElementById('settings').className = "show";
+}
+
+function displayResults(result) {
+	var results = document.getElementById('results');
+	results.className = "show";
+	results.innerHTML = result;
+}
+
+function hideResults() {
+	document.getElementById('results').className = "hide";
+}
+
+hideResults();
+
 var gridPainter = new GridPainter(document.getElementById('grid'), 5);
 var pointPainter = new PointPainter(document.getElementById('points'));
 
@@ -37,16 +73,32 @@ function start() {
 			clearInterval(id);
 			console.log(counter);
 			console.log(p.matches[0]);
+			debugger;
+			displayResults(p[p.matches[0]].sequence);
 		}
 		pointPainter.clear();
 		pointPainter.paintPoints(p);
-		var vals = [];
-		p.forEach(function(item) { vals.push(item.decode()); })
-		vals.sort(function(a,b){ return (a < b) });
-		console.log(vals);
+		// var vals = [];
+		// p.forEach(function(item) { vals.push(item.decode()); })
+		// vals.sort(function(a,b){ return (a < b) });
+		// console.log(vals);
 		p.evolve();
 		counter++;
-	}, 500);
+	}, 100);
 }
 
-start();
+var button =  document.getElementById('button');
+
+button.onclick = function(e) {
+	setSettings();
+	hideMenu();
+	start();
+}
+
+document.onkeyup = function(e) {
+	e.wich = e.wich || e.keyCode;
+	if (e.wich === 13 && document.getElementById('results').className === "show") {
+		hideResults();
+		showMenu()
+	}
+}

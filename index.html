@@ -8,7 +8,25 @@
 <body>
 	<canvas id="grid"></canvas>
 	<canvas id="points"></canvas>
-	
+
+	<div id="container">
+		<div id="settings">
+			<form>
+				Population Size: <br>
+				<input type="text" id="popSize"> </input>
+				<br> Target: <br>
+				<input type="text" id="target"> </input>
+				<br> Mutation Rate: <br>
+				<input type="text" id="mutation"> </input>
+			</form>
+
+			<a id="button">OK</a>
+		</div>
+
+		<div id="results">
+		</div>
+	</div>
+
 	<script src="gridPainter.js"></script>
 	<script src="main.js"></script>
 </body>

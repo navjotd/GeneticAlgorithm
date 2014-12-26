@@ -4,7 +4,7 @@ var POP_SIZE = 100;
 var GENE_LENGTH = 4;
 var CHROMOSOME_LENGTH = 300;
 var TARGET = 54;
-var MUTATION_CHANCE = 500;
+var MUTATION_RATE = 500;
 
 var encoding = {
 	"0000": 0,
@@ -185,7 +185,7 @@ Chromosome.prototype.mutate = function() {
 	var str = this.bits;
 	// apparently math.random is pretty uniform, so getting 5 has probability of 1/1000
 	for (var i = 0; i < this.bits.length; i++) {
-		var toss = Math.floor(Math.random() * MUTATION_CHANCE);
+		var toss = Math.floor(Math.random() * MUTATION_RATE);
 		if (toss === 5) {
 			//console.log("MUTATION ************************************************");
 			str = str.replaceAt(i, String(1 - Number(str[i]))); //this flips the bit;s
