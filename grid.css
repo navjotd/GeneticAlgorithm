@@ -68,8 +68,9 @@ form {
 	margin: auto;
 	margin-top: 15px;
 	color: white;
+	font-family: Georgia;
 	font-style: italic;
-	font-size: 10px;
+	font-size: 11px;
 }
 
 input {

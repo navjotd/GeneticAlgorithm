@@ -1,17 +1,13 @@
 function setSettings() {
-	var popSize = document.getElementById('popSize').value;
-	var target = document.getElementById('target').value;
-	var mutation = document.getElementById('mutation').value;
+	var popSize = Number(document.getElementById('popSize').value);
+	var target = Number(document.getElementById('target').value);
+	var mutation = Number(document.getElementById('mutation').value);
 
 	if (popSize % 2 === 0)
 		POP_SIZE = popSize;
 
 	TARGET = target;
 	MUTATION_RATE = mutation;
-
-	document.getElementById('popSize').value = "";
-	document.getElementById('target').value = "";
-	document.getElementById('mutation').value = "";
 }
 
 function hideMenu() {
@@ -26,6 +22,7 @@ function displayResults(result) {
 	var results = document.getElementById('results');
 	results.className = "show";
 	results.innerHTML = result;
+	results.innerHTML += '<br> Press Enter to retry'
 }
 
 function hideResults() {
