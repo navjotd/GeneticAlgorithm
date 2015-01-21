@@ -185,7 +185,7 @@ Chromosome.prototype.mutate = function() {
 	var str = this.bits;
 	// apparently math.random is pretty uniform, so getting 5 has probability of 1/1000
 	for (var i = 0; i < this.bits.length; i++) {
-		debugger;
+		//debugger;
 		var toss = Math.floor(Math.random() * MUTATION_RATE);
 		if (toss === 0) {
 			//console.log("MUTATION ************************************************");
