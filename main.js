@@ -3,11 +3,18 @@ function setSettings() {
 	var target = Number(document.getElementById('target').value);
 	var mutation = Number(document.getElementById('mutation').value);
 
+	if (popSize > 1000 || popSize < 2 || popSize%2 !== 0 ||
+		mutation < 1 || mutation > 2000){
+		return false;
+	}
+
 	if (popSize % 2 === 0)
 		POP_SIZE = popSize;
 
 	TARGET = target;
 	MUTATION_RATE = mutation;
+
+	return true;
 }
 
 function hideMenu() {
@@ -29,7 +36,17 @@ function hideResults() {
 	document.getElementById('results').className = "hide";
 }
 
+function displayError() {
+	var error = document.getElementById('error');
+	error.className = "show";
+}
+
+function hideError() {
+	document.getElementById('error').className = "hide";
+}
+
 hideResults();
+hideError();
 
 var gridPainter = new GridPainter(document.getElementById('grid'), 5);
 var pointPainter = new PointPainter(document.getElementById('points'));
@@ -70,7 +87,7 @@ function start() {
 			clearInterval(id);
 			console.log(counter);
 			console.log(p.matches[0]);
-			debugger;
+			//debugger;
 			displayResults(p[p.matches[0]].sequence);
 		}
 		pointPainter.clear();
@@ -87,7 +104,13 @@ function start() {
 var button =  document.getElementById('button');
 
 button.onclick = function(e) {
-	setSettings();
+	//debugger;
+	var res = setSettings();
+	if (!res) {
+		displayError();
+		return;
+	}
+	hideError();
 	hideMenu();
 	start();
 }

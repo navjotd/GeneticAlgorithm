@@ -37,14 +37,14 @@ function GridPainter(canvasNode, pixelSize) {
 	this.node.width = window.innerWidth - 100;
 	this.node.height = window.innerHeight - 100;
 	this.context = this.node.getContext("2d");
-	this.context.strokeStyle = '#070707';
+	this.context.strokeStyle = '#242424';
 }
 
 GridPainter.prototype.updateSize = function() {
 	this.node.width = window.innerWidth - 100;
 	this.node.height = window.innerHeight - 100;
 	this.context = this.node.getContext("2d");
-	this.context.strokeStyle = '#070707';
+	this.context.strokeStyle = '#242424';
 }
 
 GridPainter.prototype.paintGrid = function() {
@@ -114,6 +114,6 @@ function getPointColour(r) {
 	if (r < 31)
 		return '#' + redToGreen[Math.floor(r)];
 	else
-		return '#333';
+		return '#828282';
 }
 

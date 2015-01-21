@@ -11,22 +11,26 @@
 	<canvas id="points"></canvas>
 
 	<div id="container">
-		<div id="settings">http://navjot.ca/GeneticAlgorithm/gridPainter.js
+		<div id="error" class="hide">
+			Population size must be an even integer from 2 to 1000 </br>
+			Mutation rate must be an integer from 1 to 2000.
+		</div>
+		<div id="settings">
 			<form>
 				Population Size <br>
-				(even natural number): <br>
+				(Even Natural number from 2 to 1000): <br>
 				<input type="text" id="popSize"> </input>
 				<br> Target: <br>
 				<input type="text" id="target"> </input>
 				<br> Mutation Rate <br>
-				(entering 10 means 1/10 = 0.1): <br>
+				(Natural number from 1 to 2000. Bigger number means longer simulation): <br>
 				<input type="text" id="mutation"> </input>
 			</form>
 
 			<a id="button">OK</a>
 		</div>
 
-		<div id="results">
+		<div id="results" class="hide">
 		</div>
 	</div>
 
